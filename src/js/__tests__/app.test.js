@@ -1,6 +1,6 @@
-import GameSavingLoader from '../gameSavingLoader.js';
+import GameSavingLoader from '../gameSavingLoader';
 
-test('should return obj', () => {
+test('should return obj', async () => {
   const expected = {
     id: 9,
     created: 1546300800,
@@ -11,6 +11,6 @@ test('should return obj', () => {
       points: 2000,
     },
   };
-
-  return GameSavingLoader.load().then((result) => expect(result).toEqual(expected));
+  const result = await GameSavingLoader.load();
+  return expect(result).toEqual(expected);
 });
